@@ -25,7 +25,7 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: 'Hi. What would you like to learn about Amazon\'s annual reports?',
+        message: 'Hi. What would you like to learn about Amazon\`s annual reports?',
         type: 'apiMessage',
       },
     ],
@@ -130,11 +130,11 @@ export default function Home() {
       <Layout>
         <div className="mx-auto flex flex-col gap-4">
         <h1 className={styles.slogan}>
-            <span className={styles.sloganAskEDGAR}>AskEDGAR</span> anything about your document
+            <span className={styles.sloganAskEDGAR}>AskEDGAR</span> about Amazon\`s 10-K Filings
           </h1>
           <div className={styles.currentFileWrapper}>
            <div className={styles.currentFileText}>
-              Current Data Source:<span className={styles.currentFileName}> Amazon 2020-2022 10-K</span>
+              Current Data Source:<span className={styles.currentFileName}> Amazon 10-Ks 2020-2022</span>
              </div>
            </div>
           <main className={styles.main}>
