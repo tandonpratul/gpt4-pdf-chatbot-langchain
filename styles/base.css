@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    background-color: #F7F6F2;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+}

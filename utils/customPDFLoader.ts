@@ -17,6 +17,8 @@ export abstract class BufferLoader extends BaseDocumentLoader {
     let metadata: Record<string, string>;
     if (typeof this.filePathOrBlob === 'string') {
       buffer = await readFile(this.filePathOrBlob);
+      // strip off the source directory to the last slash
+      // eg. /home/user/Downloads/file.pdf -> file.pdf
       metadata = { source: this.filePathOrBlob };
     } else {
       buffer = await this.filePathOrBlob

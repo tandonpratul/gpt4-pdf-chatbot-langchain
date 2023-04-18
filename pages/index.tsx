@@ -25,7 +25,7 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: 'Hi, what would you like to learn about this legal case?',
+        message: 'Hi. What would you like to learn about Amazon\'s annual reports?',
         type: 'apiMessage',
       },
     ],
@@ -111,6 +111,11 @@ export default function Home() {
     }
   }
 
+  const handleChange = () => {
+    console.log("Reset");
+    window.location.reload()
+  };
+
   //prevent empty submissions
   const handleEnter = (e: any) => {
     if (e.key === 'Enter' && query) {
@@ -124,9 +129,14 @@ export default function Home() {
     <>
       <Layout>
         <div className="mx-auto flex flex-col gap-4">
-          <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center">
-            Chat With Your Legal Docs
+        <h1 className={styles.slogan}>
+            <span className={styles.sloganAskEDGAR}>AskEDGAR</span> anything about your document
           </h1>
+          <div className={styles.currentFileWrapper}>
+           <div className={styles.currentFileText}>
+              Current Data Source:<span className={styles.currentFileName}> Amazon 2020-2022 10-K</span>
+             </div>
+           </div>
           <main className={styles.main}>
             <div className={styles.cloud}>
               <div ref={messageListRef} className={styles.messagelist}>
@@ -137,10 +147,10 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/bot-image.png"
+                        src="/logo.png"
                         alt="AI"
-                        width="40"
-                        height="40"
+                        width="25"
+                        height="25"
                         className={styles.boticon}
                         priority
                       />
@@ -195,7 +205,9 @@ export default function Home() {
                                       {doc.pageContent}
                                     </ReactMarkdown>
                                     <p className="mt-2">
-                                      <b>Source:</b> {doc.metadata.source}
+                                  
+                                      <b>Source:</b> {doc.metadata.source.replace(/.*\//, '')}
+
                                     </p>
                                   </AccordionContent>
                                 </AccordionItem>
@@ -224,7 +236,7 @@ export default function Home() {
                     placeholder={
                       loading
                         ? 'Waiting for response...'
-                        : 'What is this legal case about?'
+                        : 'What is the summary of the report?'
                     }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
@@ -250,6 +262,13 @@ export default function Home() {
                       </svg>
                     )}
                   </button>
+                  <button className={styles.generatebutton2}type="button" onClick={handleChange}>
+                   {loading ? (
+                       <svg xmlns="http://www.w3.org/2000/svg" height="10pt" viewBox="0 0 329.26933 329" width="10pt"><path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/></svg>
+                     ) : (
+                       // Send icon SVG in input field
+                       <svg xmlns="http://www.w3.org/2000/svg" height="10pt" viewBox="0 0 329.26933 329" width="10pt"><path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/></svg>
+                     )}</button>
                 </form>
               </div>
             </div>
@@ -261,8 +280,11 @@ export default function Home() {
           </main>
         </div>
         <footer className="m-auto p-4">
-          <a href="https://twitter.com/mayowaoshin">
-            Powered by LangChainAI. Demo built by Mayo (Twitter: @mayowaoshin).
+          <a href="https://github.com/hwchase17/langchain" className={styles.footer}>
+            Powered by LangChainAI.
+          </a>
+          <a href="https://www.youtube.com/watch?v=8q7S-HVkN2E" className={styles.footer}>
+            Demo built by Jugaad.
           </a>
         </footer>
       </Layout>

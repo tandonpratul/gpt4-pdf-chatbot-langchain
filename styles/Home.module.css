@@ -5,6 +5,50 @@
   align-items: center;
   padding: 1rem;
 }
+.headerContainer {
+  top: 0;
+  z-index: 40;
+  position: sticky;
+  background-color: #F7F6F2;
+}
+
+.AskEDGAR {
+  height: 50px;
+  margin-top: 20px;
+}
+
+.slogan {
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: bold;
+  font-weight: 400;
+}
+
+.sloganAskEDGAR {
+  font-family: 'Roboto Slab', monospace;
+   color: #607EAA;
+   font-size: 1.5rem;
+}
+
+.sloganAskEDGAR:hover {
+  cursor: pointer;
+  color: #1C3879;
+}
+
+.currentFileWrapper {
+  text-align: center;
+  font-family: 'Ubuntu', monospace;
+  color: #888;
+}
+
+.currentFileText {
+  font-weight: 500;
+}
+
+.currentFileName {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
 
 .header {
   width: auto;
@@ -26,7 +70,7 @@
   width: 75vw;
   border-radius: 0.5rem;
   border: 1px solid #d9d9e3;
-  background: #ffffff;
+  background-color: #F7F6F2;
   color: #000;
   outline: none;
 }
@@ -38,7 +82,7 @@
 .textarea:focus {
   outline: none;
   border-color: #6b7280;
-  box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.5);
+  box-shadow: 0 0 0 1px #607EAA;
 }
 
 .textarea::placeholder {
@@ -49,7 +93,7 @@
   position: absolute;
   top: 0.87rem;
   right: 1rem;
-  color: rgb(165, 162, 162);
+  color: #607EAA;
   background: none;
   padding: 0.3rem;
   border: none;
@@ -69,6 +113,26 @@
   fill: currentColor;
 }
 
+.generatebutton2 {
+  position: absolute;
+  top: 1.1rem;
+  right: 2.8rem;
+  color: #607EAA;
+  background: none;
+  padding: 0.3rem;
+  border: none;
+  display: flex;
+}
+.generatebutton2:hover {
+  background: #e4575726;
+  border-radius: 0.2rem;
+}
+
+.generatebutton2:disabled {
+  opacity: 0.9;
+  cursor: not-allowed;
+  background: none;
+}
 .generatebutton:hover {
   background: #e4575726;
   border-radius: 0.2rem;
@@ -211,18 +275,17 @@
 }
 
 .footer {
-  color: #5f6368;
+  color: #607EAA;
   font-size: 0.8rem;
   margin: 1.5rem;
+  font-weight: 300;
+  width: 100%;
+  text-align: center;
 }
 
-.footer a {
-  font-weight: 500;
-  color: #7a7d81;
-}
-
-.footer a:hover {
+.footer:hover {
   opacity: 0.8;
+  color: #1C3879;
 }
 
 /* Mobile optimization */
