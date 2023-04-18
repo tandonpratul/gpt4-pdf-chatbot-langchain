@@ -301,6 +301,7 @@
   }
   .textarea {
     width: 22rem;
+    font-size: 0.9rem;
   }
   .topnav {
     border: 1px solid black;
